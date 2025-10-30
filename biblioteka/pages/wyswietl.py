@@ -18,4 +18,7 @@ if "ksiazki" not in st.session_state:
 st.markdown("Lista książek:")
 st.dataframe(st.session_state.ksiazki)
 
+for x in st.session_state.ksiazki:
+    przeczytane = st.checkbox("przeczytane")
+
 st.page_link("main.py", label="Powrót do MENU")
