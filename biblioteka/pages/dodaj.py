@@ -27,7 +27,7 @@ if st.session_state["dodawanie"]:
     tytul = st.text_input("Tytuł: ")
     autor = st.text_input("Autor: ")
     wydawnictwo = st.text_input("Wydawnictwo: ")
-    status = st.checkbox("Status:")
+    status = st.checkbox("Przeczytana")
     if status == "przeczytana":
         status = True
     elif status == "nieprzeczytana":
