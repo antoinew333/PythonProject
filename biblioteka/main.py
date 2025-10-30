@@ -14,8 +14,8 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 st.title(":blue[BIBLIOTEKA]", width="content")
 
-st.page_link("pages/dodaj.py", label="Dodaj książkę", width="stretch")
+st.page_link("pages/dodaj.py", label="Dodaj książkę", width="content")
 
-st.page_link("pages/wyswietl.py", label="Wyświetl ksiązkę", width="stretch")
+st.page_link("pages/wyswietl.py", label="Wyświetl ksiązkę", width="content")
 
-st.page_link("pages/usun.py", label = "Usuń książkę", width="stretch")
+st.page_link("pages/usun.py", label = "Usuń książkę", width="content")
