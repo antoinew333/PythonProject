@@ -26,7 +26,7 @@ if st.session_state["dodawanie"]:
     tytul = st.text_input("Tytuł: ")
     autor = st.text_input("Autor: ")
     wydawnictwo = st.text_input("Wydawnictwo: ")
-    rok = st.number_input("Rok: ")
+    rok = st.text_input("Rok: ")
     status = st.checkbox("Przeczytana", width="stretch")
     if status == "przeczytana":
         status = True
