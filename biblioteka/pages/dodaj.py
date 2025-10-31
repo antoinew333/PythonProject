@@ -1,6 +1,5 @@
 import streamlit as st
 import json
-import time
 
 def zapisz_ksiazke(ksiazki):
     plik = open("ksiazki.json", "w")
@@ -35,7 +34,7 @@ if st.session_state["dodawanie"]:
         status = False
     if st.button("Zapisz książkę"):
         if len(tytul) != 0:
-            st.session_state.ksiazki.append({"Tytuł": tytul, "Autor":autor, "Wydawnictwo": wydawnictwo, "Rok:": rok, "Przeczytana": status})
+            st.session_state.ksiazki.append({"Tytuł": tytul, "Autor":autor, "Wydawnictwo": wydawnictwo, "Rok": rok, "Przeczytana": status})
             zapisz_ksiazke(st.session_state.ksiazki)
             st.session_state["dodawanie"] = False
             st.success("Książka została dodana do biblioteki")
