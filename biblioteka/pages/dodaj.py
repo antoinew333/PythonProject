@@ -38,8 +38,8 @@ if st.session_state["dodawanie"]:
             zapisz_ksiazke(st.session_state.ksiazki)
             st.session_state["dodawanie"] = False
             st.success("Książka została dodana do biblioteki")
+            st.empty()
         else:
             st.warning("Uzupełnij puste pola")
-        st.empty()
 
 st.page_link("main.py", label="Powrót do MENU")
