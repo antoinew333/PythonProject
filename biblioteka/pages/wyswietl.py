@@ -16,6 +16,6 @@ if "ksiazki" not in st.session_state:
     st.session_state.ksiazki = wczytaj_ksiazki()
 
 st.markdown("Lista książek:")
-st.dataframe(st.session_state.ksiazki, row_order=( i for i in range(st.session_state.ksiazki)))
+st.dataframe(st.session_state.ksiazki, row_order=("nr. %d" % i for i in range(len(st.session_state.ksazki))))
 
 st.page_link("main.py", label="Powrót do MENU")
