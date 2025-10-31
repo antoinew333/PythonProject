@@ -41,7 +41,7 @@ if st.session_state["dodawanie"]:
             st.success("Książka została dodana do biblioteki")
         else:
             st.warning("Uzupełnij puste pola")
-        time.sleep(2)
+    time.sleep(2)
     st.rerun()
 
 st.page_link("main.py", label="Powrót do MENU")
