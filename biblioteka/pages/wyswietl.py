@@ -14,10 +14,9 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 if "ksiazki" not in st.session_state:
     st.session_state.ksiazki = wczytaj_ksiazki()
-numeracja = 0
 
 st.markdown("Lista książek:")
-for numeracja in range(len(st.dataframe(st.session_state.ksiazki))):
-    print(numeracja + 1)
+for x in range(len(st.dataframe(st.session_state.ksiazki))):
+    print(x + 1)
 
 st.page_link("main.py", label="Powrót do MENU")
