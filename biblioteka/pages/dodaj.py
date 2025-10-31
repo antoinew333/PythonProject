@@ -32,8 +32,8 @@ if st.session_state["dodawanie"]:
         status = True
     elif status == "nieprzeczytana":
         status = False
-    with st.empty():
-        if st.button("Zapisz książkę"):
+    if st.button("Zapisz książkę"):
+        with st.empty():
             if len(tytul) != 0:
                 st.session_state.ksiazki.append({"Tytuł": tytul, "Autor":autor, "Wydawnictwo": wydawnictwo, "Rok:": rok, "Przeczytana": status})
                 zapisz_ksiazke(st.session_state.ksiazki)
