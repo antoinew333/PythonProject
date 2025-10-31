@@ -17,7 +17,7 @@ if "ksiazki" not in st.session_state:
 numeracja = 0
 
 st.markdown("Lista książek:")
-for numeracja in st.dataframe(st.session_state.ksiazki):
+for numeracja in range(len(st.dataframe(st.session_state.ksiazki))):
     print(numeracja + 1)
 
 st.page_link("main.py", label="Powrót do MENU")
