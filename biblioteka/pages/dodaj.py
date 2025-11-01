@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import time
 
 def zapisz_ksiazke(ksiazki):
     plik = open("ksiazki.json", "w")
@@ -44,5 +45,9 @@ if st.session_state["dodawanie"]:
             st.success("Książka została dodana do biblioteki")
         else:
             st.warning("Uzupełnij puste pola")
+
+        odswiezenie = st.empty()
+        time.sleep(1)
+        odswiezenie.empty()
 
 st.page_link("main.py", label="Powrót do MENU")
