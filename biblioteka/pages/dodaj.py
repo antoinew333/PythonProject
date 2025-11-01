@@ -29,6 +29,14 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 st.session_state["dodawanie"] = True
 
+if "czyszczenie" not in st.session_state:
+    st.session_state.czyszczenie = True
+    st.session_state["tytul_input"] = ""
+    st.session_state["autor_input"] = ""
+    st.session_state["wydawnictwo_input"] = ""
+    st.session_state["rok_input"] = ""
+    st.session_state["status_input"] = False
+    st.session_state.czyszczenie = False
 
 if st.session_state["dodawanie"]:
     tytul = st.text_input("Tytuł: ", key="tytul_input")
