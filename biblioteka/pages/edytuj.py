@@ -30,10 +30,10 @@ edycja = st.selectbox("Wybierz książkę do edytowania: ", options=pozycje)
 
 if st.session_state["edytowanie"]:
     if st.button("Potwierdź"):
-        tytul = st.text_input("Tytuł: ", st.text(pozycje[0]))
-        autor = st.text_input("Autor: ", st.text(pozycje[1]))
-        wydawnictwo = st.text_input("Wydawnictwo: ", st.text(pozycje[2]))
-        rok = st.text_input("Rok: ", st.text(pozycje[3]))
+        tytul = st.text_input("Tytuł: ")
+        autor = st.text_input("Autor: ")
+        wydawnictwo = st.text_input("Wydawnictwo: ")
+        rok = st.text_input("Rok: ")
         status = st.checkbox("Przeczytana", width="stretch")
         if status == "przeczytana":
             status = True
