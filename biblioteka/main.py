@@ -28,11 +28,11 @@ if "dodawanie" not in st.session_state:
 @st.dialog("Dodaj książkę")
 def ksiazka():
     if st.session_state["dodawanie"]:
-        tytul = st.text_input("Tytuł: ", key="tytul.input")
-        autor = st.text_input("Autor: ", key="autor.input")
-        wydawnictwo = st.text_input("Wydawnictwo: ", key="wydawnictwo.input")
-        rok = st.text_input("Rok: ", key="rok.input")
-        status = st.checkbox("Przeczytana", key="status.input")
+        tytul = st.text_input("Tytuł: ", key="tytul_input")
+        autor = st.text_input("Autor: ", key="autor_input")
+        wydawnictwo = st.text_input("Wydawnictwo: ", key="wydawnictwo_input")
+        rok = st.text_input("Rok: ", key="rok_input")
+        status = st.checkbox("Przeczytana", key="status_input")
         if status == "przeczytana":
             status = True
         elif status == "nieprzeczytana":
@@ -49,11 +49,11 @@ def ksiazka():
                 st.session_state["dodawanie"] = False
                 st.success("Książka została dodana do biblioteki")
 
-                st.session_state.tytul.input = ""
-                st.session_state.autor.input = ""
-                st.session_state.wydawnictwo.input = ""
-                st.session_state.rok.input = ""
-                st.session_state.przeczytane.input = False
+                st.session_state.tytul_input = ""
+                st.session_state.autor_input = ""
+                st.session_state.wydawnictwo_input = ""
+                st.session_state.rok_input = ""
+                st.session_state.przeczytane_input = False
             else:
                 st.warning("Uzupełnij puste pola")
 
