@@ -25,4 +25,6 @@ if len(st.session_state.ksiazki) > 0:
 else:
     st.info("Brak książek w bibliotece.")
 
+st.page_link("edytuj.py", label="Edytuj listę")
+
 st.page_link("main.py", label="Powrót do MENU")

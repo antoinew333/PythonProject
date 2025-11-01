@@ -45,6 +45,4 @@ if st.session_state["dodawanie"]:
         else:
             st.warning("Uzupełnij puste pola")
 
-st.page_link("edytuj.py", label="Edytuj listę")
-
 st.page_link("main.py", label="Powrót do MENU")
