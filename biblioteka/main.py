@@ -51,9 +51,9 @@ def ksiazka():
             else:
                 st.warning("Uzupełnij puste pola")
 
-    if st.button("Dodaj książkę"):
-        st.session_state["dodawanie"] = True
-        ksiazka()
+if st.button("Dodaj książkę"):
+    st.session_state["dodawanie"] = True
+    ksiazka()
 
 st.page_link("pages/wyswietl.py", label="Wyświetl ksiązkę", width="content")
 
