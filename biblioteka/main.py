@@ -15,14 +15,15 @@ def zapisz_ksiazke(ksiazki):
     json.dump(ksiazki, plik, indent = 2)
     plik.close()
 
-if "ksiazki" not in st.session_state:
-    st.session_state.ksiazki = wczytaj_ksiazki()
-
 st.set_page_config(initial_sidebar_state="collapsed")
 
 st.title(":blue[BIBLIOTEKA]", width="content")
 
-st.session_state["dodawanie"] = True
+if "ksiazki" not in st.session_state:
+    st.session_state.ksiazki = wczytaj_ksiazki()
+
+if "dodawanie" not in st.session_state:
+    st.session_state.dodawanie = False
 
 @st.dialog("Dodaj książkę")
 def ksiazka():
@@ -31,11 +32,12 @@ def ksiazka():
         autor = st.text_input("Autor: ")
         wydawnictwo = st.text_input("Wydawnictwo: ")
         rok = st.text_input("Rok: ")
-        status = st.checkbox("Przeczytana", width="stretch")
+        status = st.checkbox("Przeczytana")
         if status == "przeczytana":
             status = True
         elif status == "nieprzeczytana":
             status = False
+
         if st.button("Zapisz książkę"):
             if len(tytul) != 0:
                 st.session_state.ksiazki.append({"Tytuł": tytul,
@@ -49,8 +51,9 @@ def ksiazka():
             else:
                 st.warning("Uzupełnij puste pola")
 
-if "ksiazka" not in st.session_state:
-    st.button("Dodaj książkę")
+    if st.button("Dodaj książkę"):
+        st.session_state["dodawanie"] = True
+        ksiazka()
 
 st.page_link("pages/wyswietl.py", label="Wyświetl ksiązkę", width="content")
 
