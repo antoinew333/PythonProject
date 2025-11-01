@@ -29,24 +29,22 @@ pozycje = [x["Tytuł"] for x in st.session_state.ksiazki]
 edycja = st.selectbox("Wybierz książkę do edytowania: ", options=pozycje)
 
 if st.session_state["edytowanie"]:
-    if st.button("Potwierdź"):
-        tytul = st.text_input("Tytuł: ")
-        autor = st.text_input("Autor: ")
-        wydawnictwo = st.text_input("Wydawnictwo: ")
-        rok = st.text_input("Rok: ")
-        status = st.checkbox("Przeczytana", width="stretch")
-        if status == "przeczytana":
-            status = True
-        elif status == "nieprzeczytana":
-            status = False
-        if st.button("Zapisz"):
-            st.session_state.ksiazki.update({"Tytuł": tytul,
-                                             "Autor": autor,
-                                             "Wydawnictwo": wydawnictwo,
-                                             "Rok": rok,
-                                             "Przeczytana": status})
-            zapisz_ksiazke(st.session_state.ksiazki)
-            st.session_state.edytowanie = False
-            st.success("Książka została zedytowana")
+    tytul = st.text_input("Tytuł: ")
+    autor = st.text_input("Autor: ")
+    wydawnictwo = st.text_input("Wydawnictwo: ")
+    rok = st.text_input("Rok: ")
+    status = st.checkbox("Przeczytana", width="stretch")        if status == "przeczytana":
+        status = True
+    elif status == "nieprzeczytana":
+        status = False
+    if st.button("Zapisz"):
+        st.session_state.ksiazki.update({"Tytuł": tytul,
+                                         "Autor": autor,
+                                         "Wydawnictwo": wydawnictwo,
+                                         "Rok": rok,
+                                         "Przeczytana": status})
+        zapisz_ksiazke(st.session_state.ksiazki)
+        st.session_state.edytowanie = False
+        st.success("Książka została zedytowana")
 
 st.page_link("main.py", label="Powrót do MENU")
