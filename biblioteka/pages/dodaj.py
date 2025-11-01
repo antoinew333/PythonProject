@@ -36,7 +36,8 @@ if "czyszczenie" not in st.session_state:
     st.session_state["wydawnictwo_input"] = ""
     st.session_state["rok_input"] = ""
     st.session_state["status_input"] = False
-    st.session_state.czyszczenie = False
+
+st.session_state.czyszczenie = False
 
 if st.session_state["dodawanie"]:
     tytul = st.text_input("Tytuł: ", key="tytul_input")
@@ -60,7 +61,7 @@ if st.session_state["dodawanie"]:
             st.session_state["dodawanie"] = False
             st.success("Książka została dodana do biblioteki")
 
-            time.sleep(1)
+            time.sleep(2)
             st.rerun()
 
         else:
