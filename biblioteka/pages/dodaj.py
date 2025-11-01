@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import time
 
 def zapisz_ksiazke(ksiazki):
     plik = open("ksiazki.json", "w")
@@ -52,6 +53,10 @@ if st.session_state["dodawanie"]:
             st.session_state.wydawnictwo_input = ""
             st.session_state.rok_input = ""
             st.session_state.status_input = False
+
+            sleep.time(2)
+            st.rerun()
+
         else:
             st.warning("Uzupełnij puste pola")
 
