@@ -22,6 +22,8 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 st.title(":blue[BIBLIOTEKA]", width="content")
 
+st.session_state["dodawanie"] = True
+
 @st.dialog("Dodaj książkę")
 def ksiazka():
     if st.session_state["dodawanie"]:
