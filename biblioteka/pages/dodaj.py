@@ -60,6 +60,8 @@ if st.session_state["dodawanie"]:
             st.session_state["dodawanie"] = False
             st.success("Książka została dodana do biblioteki")
 
+            st.session_state.czysczenie = True
+
             time.sleep(2)
             st.rerun()
 
