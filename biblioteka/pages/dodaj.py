@@ -22,8 +22,9 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 st.session_state["dodawanie"] = True
 
-if "ksiazka" not in st.session_state:
-    if st.button("Dodaj książkę"):
+
+if st.button("Dodaj książkę"):
+    if "ksiazka" not in st.session_state:
         if st.session_state["dodawanie"]:
             @st.dialog("Dane książki")
             def ksiazka():
