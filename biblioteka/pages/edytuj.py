@@ -39,7 +39,7 @@ if st.session_state["edytowanie"]:
     elif status == "nieprzeczytana":
         status = False
     if st.button("Zapisz"):
-        st.session_state.ksiazki.update({"Tytuł": tytul,
+        st.session_state.ksiazki.insert({"Tytuł": tytul,
                                          "Autor": autor,
                                          "Wydawnictwo": wydawnictwo,
                                          "Rok": rok,
