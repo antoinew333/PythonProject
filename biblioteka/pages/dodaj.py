@@ -48,11 +48,11 @@ if st.session_state["dodawanie"]:
             st.session_state["dodawanie"] = False
             st.success("Książka została dodana do biblioteki")
 
-            st.session_state.tytul_input = ""
-            st.session_state.autro_input = ""
-            st.session_state.wydawnictwo_input = ""
-            st.session_state.rok_input = ""
-            st.session_state.status_input = False
+            st.session_state["tytul_input"] = ""
+            st.session_state["autor_input"] = ""
+            st.session_state["wydawnictwo_input"] = ""
+            st.session_state["rok_input"] = ""
+            st.session_state["status_input"] = False
 
             time.sleep(2)
             st.rerun()
