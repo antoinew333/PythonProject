@@ -25,7 +25,7 @@ if "edytowanie" not in st.session_state:
 
 st.session_state["edytowanie"] = True
 
-pozycje = [x["Tytuł", "status"] for x in st.session_state.ksiazki]
+pozycje = [x["Tytuł"] for x in st.session_state.ksiazki]
 edycja = st.selectbox("Wybierz książkę do edytowania: ", options=pozycje)
 
 if st.session_state["edytowanie"]:
