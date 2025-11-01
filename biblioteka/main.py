@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-
+import time
 def wczytaj_ksiazki():
     try:
         with open("ksiazki.json", "r") as plik:
@@ -50,6 +50,7 @@ def ksiazka():
                 st.success("Książka została dodana do biblioteki")
             else:
                 st.warning("Uzupełnij puste pola")
+            time.sleep(2)
             st.rerun()
 if st.button("Dodaj książkę"):
     st.session_state["dodawanie"] = True
