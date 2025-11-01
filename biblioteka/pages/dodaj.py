@@ -46,6 +46,6 @@ if st.session_state["dodawanie"]:
         else:
             st.warning("Uzupełnij puste pola")
         time.sleep(2)
-        st.rerun(scope="app")
+        st.rerun("main.py", "dodaj.py")
 
 st.page_link("main.py", label="Powrót do MENU")
