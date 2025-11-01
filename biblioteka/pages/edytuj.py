@@ -33,7 +33,8 @@ if st.session_state["edytowanie"]:
     autor = st.text_input("Autor: ")
     wydawnictwo = st.text_input("Wydawnictwo: ")
     rok = st.text_input("Rok: ")
-    status = st.checkbox("Przeczytana", width="stretch")        if status == "przeczytana":
+    status = st.checkbox("Przeczytana", width="stretch")
+    if status == "przeczytana":
         status = True
     elif status == "nieprzeczytana":
         status = False
