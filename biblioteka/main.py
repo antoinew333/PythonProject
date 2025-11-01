@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-import time
+
 def wczytaj_ksiazki():
     try:
         with open("ksiazki.json", "r") as plik:
@@ -28,11 +28,11 @@ if "dodawanie" not in st.session_state:
 @st.dialog("Dodaj książkę")
 def ksiazka():
     if st.session_state["dodawanie"]:
-        tytul = st.text_input("Tytuł: ")
-        autor = st.text_input("Autor: ")
-        wydawnictwo = st.text_input("Wydawnictwo: ")
-        rok = st.text_input("Rok: ")
-        status = st.checkbox("Przeczytana")
+        tytul = st.text_input("Tytuł: ", key="tytul.input")
+        autor = st.text_input("Autor: ", key="autor.input")
+        wydawnictwo = st.text_input("Wydawnictwo: ", key="wydawnictwo.input")
+        rok = st.text_input("Rok: ", key="rok.input")
+        status = st.checkbox("Przeczytana", key="status.input")
         if status == "przeczytana":
             status = True
         elif status == "nieprzeczytana":
@@ -48,10 +48,15 @@ def ksiazka():
                 zapisz_ksiazke(st.session_state.ksiazki)
                 st.session_state["dodawanie"] = False
                 st.success("Książka została dodana do biblioteki")
+
+                st.session_state.tytul.input = ""
+                st.session_state.autor.input = ""
+                st.session_state.wydawnictwo.input = ""
+                st.session_state.rok.input = ""
+                st.session_state.przeczytane.input = False
             else:
                 st.warning("Uzupełnij puste pola")
-            time.sleep(2)
-            st.rerun()
+
 if st.button("Dodaj książkę"):
     st.session_state["dodawanie"] = True
     ksiazka()
