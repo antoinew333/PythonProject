@@ -37,9 +37,8 @@ if "czyszczenie" not in st.session_state:
     st.session_state["rok_input"] = ""
     st.session_state["status_input"] = False
 
-st.session_state.czyszczenie = False
-
 if st.session_state["dodawanie"]:
+    st.session_state.czyszczenie = False
     tytul = st.text_input("Tytuł: ", key="tytul_input")
     autor = st.text_input("Autor: ", key="autor_input")
     wydawnictwo = st.text_input("Wydawnictwo: ", key="wydawnictwo_input")
