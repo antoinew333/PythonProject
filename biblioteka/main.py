@@ -50,7 +50,7 @@ def ksiazka():
                 st.success("Książka została dodana do biblioteki")
             else:
                 st.warning("Uzupełnij puste pola")
-        st.rerun()
+            st.rerun()
 if st.button("Dodaj książkę"):
     st.session_state["dodawanie"] = True
     ksiazka()
