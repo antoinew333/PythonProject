@@ -54,7 +54,7 @@ if st.session_state["dodawanie"]:
             st.session_state.rok_input = ""
             st.session_state.status_input = False
 
-            sleep.time(2)
+            time.sleep(2)
             st.rerun()
 
         else:
