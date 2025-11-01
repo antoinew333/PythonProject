@@ -46,5 +46,7 @@ if st.session_state["dodawanie"]:
                 st.success("Książka została dodana do biblioteki")
             else:
                 st.warning("Uzupełnij puste pola")
+    if "ksiazka" not in st.session_state:
+        st.button("Dodaj książkę")
 
 st.page_link("main.py", label="Powrót do MENU")
