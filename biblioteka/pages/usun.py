@@ -24,8 +24,10 @@ if "usuwanie" not in st.session_state:
     st.session_state["usuwanie"] = False
 
 st.session_state["usuwanie"] = True
+
 pozycje = [x["Tytuł"] for x in st.session_state.ksiazki]
 usun = st.selectbox("Wybierz książkę do usunięcia: ", options=pozycje)
+
 if st.button("Potwierdź"):
     st.session_state.ksiazki = [x for x in st.session_state.ksiazki if x["Tytuł"] != usun]
     zapisz_ksiazke(st.session_state.ksiazki)

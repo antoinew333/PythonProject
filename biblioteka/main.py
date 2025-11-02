@@ -4,6 +4,8 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 st.title(":blue[BIBLIOTEKA]", width="content")
 
+st.image("jedilib.jpg")
+
 st.page_link("pages/dodaj.py", label="Dodaj ksiązkę", width="content")
 
 st.page_link("pages/wyswietl.py", label="Wyświetl ksiązkę", width="content")
