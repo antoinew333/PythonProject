@@ -4,7 +4,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 st.title(":blue[BIBLIOTEKA]", width="content")
 
-st.image("https://star-wars.pl/grafika/mar2002/jedilib.jpg")
+st.image("https://star-wars.pl/grafika/mar2002/jedilib.jpg", width="300")
 
 st.page_link("pages/dodaj.py", label="Dodaj ksiązkę", width="content")
 
