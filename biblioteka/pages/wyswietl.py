@@ -21,6 +21,7 @@ st.markdown("Lista książek:")
 if len(st.session_state.ksiazki) > 0:
     x = pd.DataFrame(st.session_state.ksiazki)
     x.index = range(1, len(x) + 1)
+    x.index.name = "Lp."
     st.dataframe(x, use_container_width=True)
 else:
     st.info("Brak książek w bibliotece.")
