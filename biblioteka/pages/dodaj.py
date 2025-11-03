@@ -3,7 +3,7 @@ import json
 
 def zapisz_ksiazke(ksiazki):
     open("plik_ksiazki.json", "w", encoding = "utg-8")
-    json.dumps(ksiazki, indent = 2, ensure_ascii = False)
+    json.dumps(ksiazki, indent = 4, ensure_ascii = False)
 
 def wczytaj_ksiazki():
     try:
