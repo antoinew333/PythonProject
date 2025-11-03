@@ -1,18 +1,7 @@
 import streamlit as st
-import json
 import pandas as pd
-import os
 
-sciezka_pliku = os.path.join(os.path.dirname(__file__), "..", "plik_ksiazki.json")
-sciezka_pliku = os.path.abspath(sciezka_pliku)
-
-def wczytaj_ksiazki():
-    try:
-        with open(sciezka_pliku, "r", encoding = "utf-8") as plik:
-            return json.load(plik)
-    except (FileNotFoundError, json.JSONDecodeError):
-        print("FileNotFoundError")
-    return []
+from ..data_manager import wczytaj_ksiazki
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
