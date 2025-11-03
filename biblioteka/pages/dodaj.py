@@ -2,13 +2,12 @@ import streamlit as st
 import json
 
 def zapisz_ksiazke(ksiazki):
-    plik = open("ksiazki.json", "w")
-    json.dump(ksiazki, plik, indent = 2)
-    plik.close()
+    open("plik_ksiazki.json", "w", encoding = "utg-8")
+    json.dumps(ksiazki, indent = 2, ensure_ascii = False)
 
 def wczytaj_ksiazki():
     try:
-        with open("ksiazki.json", "r") as plik:
+        with open("plik_ksiazki.json", "r") as plik:
             ksiazki = json.load(plik)
     except (FileNotFoundError, json.JSONDecodeError):
         print("FileNotFoundError")

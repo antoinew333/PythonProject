@@ -4,7 +4,7 @@ import pandas as pd
 
 def wczytaj_ksiazki():
     try:
-        with open("ksiazki.json", "r") as plik:
+        with open("plik_ksiazki.json", "r") as plik:
             ksiazki = json.load(plik)
     except (FileNotFoundError, json.JSONDecodeError):
         print("FileNotFoundError")
