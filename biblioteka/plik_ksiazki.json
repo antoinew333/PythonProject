@@ -5,5 +5,12 @@
         "Wydawnictwo": "ef",
         "Rok": "2015",
         "Przeczytana": true
+    },
+    {
+        "Tytuł": "Władca Pierścieni",
+        "Autor": "JRR Tolkien",
+        "Wydawnictwo": "JW",
+        "Rok": "2016",
+        "Przeczytana": true
     }
 ]
