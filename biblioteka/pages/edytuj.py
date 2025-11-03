@@ -2,9 +2,8 @@ import streamlit as st
 import json
 
 def zapisz_ksiazke(ksiazki):
-    plik = open("plik_ksiazki.json", "w")
-    json.dump(ksiazki, plik, indent = 2)
-    plik.close()
+    with open("plik_ksiazki.json", "w", encoding = "utf-8") as plik:
+        json.dump(ksiazki, plik, indent = 4, ensure_ascii = False)
 
 def wczytaj_ksiazki():
     try:
