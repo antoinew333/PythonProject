@@ -8,11 +8,10 @@ def zapisz_ksiazke(ksiazki):
 def wczytaj_ksiazki():
     try:
         with open("plik_ksiazki.json", "r") as plik:
-            ksiazki = json.load(plik)
+            return json.load(plik)
     except (FileNotFoundError, json.JSONDecodeError):
         print("FileNotFoundError")
-        ksiazki = []
-    return ksiazki
+    return []
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
@@ -20,16 +19,16 @@ if "ksiazki" not in st.session_state:
     st.session_state.ksiazki = wczytaj_ksiazki()
 
 if "edytowanie" not in st.session_state:
-    st.session_state["edytowanie"] = False
+    st.session_state.edytowanie = False
 
-st.session_state["edytowanie"] = True
+st.session_state.edytowanie = True
 
 pozycje = [x["Tytuł"] for x in st.session_state.ksiazki]
 edycja = st.selectbox("Wybierz książkę do edytowania: ", options=pozycje)
 
 ksiazka = next((x for x in st.session_state.ksiazki if x["Tytuł"] == edycja), None)
 
-if st.session_state["edytowanie"]:
+if st.session_state.edytowanie:
     tytul = st.text_input("Tytuł: ", ksiazka["Tytuł"])
     autor = st.text_input("Autor: ", ksiazka["Autor"])
     wydawnictwo = st.text_input("Wydawnictwo: ", ksiazka["Wydawnictwo"])

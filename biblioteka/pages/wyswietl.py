@@ -5,11 +5,10 @@ import pandas as pd
 def wczytaj_ksiazki():
     try:
         with open("plik_ksiazki.json", "r") as plik:
-            ksiazki = json.load(plik)
+            return json.load(plik)
     except (FileNotFoundError, json.JSONDecodeError):
         print("FileNotFoundError")
-        ksiazki = []
-    return ksiazki
+    return []
 
 st.set_page_config(initial_sidebar_state="collapsed")
 

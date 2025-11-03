@@ -8,11 +8,10 @@ def zapisz_ksiazke(ksiazki):
 def wczytaj_ksiazki():
     try:
         with open("plik_ksiazki.json", "r") as plik:
-            ksiazki = json.load(plik)
+            return json.load(plik)
     except (FileNotFoundError, json.JSONDecodeError):
         print("FileNotFoundError")
-        ksiazki = []
-    return ksiazki
+    return []
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
@@ -20,9 +19,9 @@ if "ksiazki" not in st.session_state:
     st.session_state.ksiazki = wczytaj_ksiazki()
 
 if "usuwanie" not in st.session_state:
-    st.session_state["usuwanie"] = False
+    st.session_state.usuwanie = False
 
-st.session_state["usuwanie"] = True
+st.session_state.usuwanie = True
 
 pozycje = [x["Tytuł"] for x in st.session_state.ksiazki]
 usun = st.selectbox("Wybierz książkę do usunięcia: ", options=pozycje)
