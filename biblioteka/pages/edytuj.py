@@ -1,13 +1,17 @@
 import streamlit as st
 import json
+import os
+
+sciezka_pliku = os.path.join(os.path.dirname(__file__), "..", "plik_ksiazki.json")
+sciezka_pliku = os.path.abspath(sciezka_pliku)
 
 def zapisz_ksiazke(ksiazki):
-    with open("plik_ksiazki.json", "w", encoding = "utf-8") as plik:
+    with open(sciezka_pliku, "w", encoding = "utf-8") as plik:
         json.dump(ksiazki, plik, indent = 4, ensure_ascii = False)
 
 def wczytaj_ksiazki():
     try:
-        with open("plik_ksiazki.json", "r") as plik:
+        with open(sciezka_pliku, "r", encoding = "utf-8") as plik:
             return json.load(plik)
     except (FileNotFoundError, json.JSONDecodeError):
         print("FileNotFoundError")
