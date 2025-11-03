@@ -4,7 +4,7 @@ import os
 
 def zapisz_ksiazke(ksiazki):
     plik_path = os.path.join(os.path.dirname(__file__), "..", "ksiazki.json")
-    with open("ksiazki.json", "w", encoding = "utf-8") as plik:
+    with open(plik_path, "w", encoding = "utf-8") as plik:
         json.dumps(plik_path, plik, indent = 2, ensure_ascii = False)
 
 def wczytaj_ksiazki():
