@@ -3,30 +3,44 @@ import json
 import base64
 import streamlit as st
 
+
 TOKEN = st.secrets["GITHUB_TOKEN"]
 FILE_PATH = "plik_ksiazki.json"
 GITHUB_REPO = "antoinew333/biblioteka"
+URL = "https://api.github.com/repos/antoinew333/biblioteka/contents/plik_ksiazki.json"
 
 def wczytaj_ksiazki():
-    url = "https://api.github.com/repos/antoinew333/biblioteka"
     headers = {"Authorization": f"token {TOKEN}"}
-    response = requests.get(url, headers=headers)
+    response = requests.get(URL, headers=headers)
     if response.status_code == 200:
-        content = base64.b64decode(response.json()["content"]).decode("utf-8")
+        data = response.json()
+        content = base64.b64decode(data["contents"]).decode("utf-8")
         return json.loads(content)
     else:
+        st.warning("Nie udało się wczytać danych z GitHuba")
         return []
 
 def zapisz_ksiazke(ksiazki):
-    url = "https://api.github.com/repos/antoinew333/biblioteka"
     headers = {"Authorization": f"token {TOKEN}"}
-    get_response = requests.get(url, headers=headers)
-    sha = get_response.json()["sha"]
-    new_content = base64.b64decode(json.dump(ksiazki, indent = 4, ensure_ascii = False).encode()).decode()
+    get_response = requests.get(URL, headers=headers)
+    if get_response.status_code == 200:
+        sha = get_response.json()["sha"]
+    else:
+        sha = None
+    new_content = base64.b64encode(
+        json.dumps(ksiazki, indent = 4, ensure_ascii = False).encode("utf=8")).decode("utf-8")
     data = {
         "message": "Aktualizacja pliku JSON",
-        "content": new_content,
-        "sha": sha
+        "content": new_content
     }
-    put_response = requests.put(url, headers=headers, data=json.dumps(data))
-    return put_response.status_code == 200
+    if sha:
+        data["sha"] = sha
+
+    put_response = requests.put(URL, headers=headers, data=json.dumps(data))
+
+    if put_response.status_code in [200, 201]:
+        st.success("Zaktualizowano dane w repozytorium GitHub")
+        return True
+    else:
+        st.error(f"Błąd zapisu: {put_response.status_code}")
+        return False
