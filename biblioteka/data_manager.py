@@ -6,8 +6,9 @@ import streamlit as st
 
 TOKEN = st.secrets["GITHUB_TOKEN"]
 FILE_PATH = "plik_ksiazki.json"
-GITHUB_REPO = "antoinew333/biblioteka"
-URL = "https://api.github.com/repos/antoinew333/biblioteka/contents/plik_ksiazki.json"
+GITHUB_REPO = "biblioteka"
+GITHUB_USER = "antoinew333"
+URL = f"https://api.github.com/repos/antoinew333/biblioteka/contents/plik_ksiazki.json"
 
 def wczytaj_ksiazki():
     headers = {"Authorization": f"token {TOKEN}"}
@@ -23,18 +24,14 @@ def wczytaj_ksiazki():
 def zapisz_ksiazke(ksiazki):
     headers = {"Authorization": f"token {TOKEN}"}
     get_response = requests.get(URL, headers=headers)
-    if get_response.status_code == 200:
-        sha = get_response.json()["sha"]
-    else:
-        sha = None
-    new_content = base64.b64encode(
+    sha = get_response.json().get("sha")
+    content_encoded = base64.b64encode(
         json.dumps(ksiazki, indent = 4, ensure_ascii = False).encode("utf=8")).decode("utf-8")
     data = {
         "message": "Aktualizacja pliku JSON",
-        "content": new_content
+        "content": content_encoded,
+        "sha": sha
     }
-    if sha:
-        data["sha"] = sha
 
     put_response = requests.put(URL, headers=headers, data=json.dumps(data))
 
