@@ -1,7 +1,18 @@
 import streamlit as st
+import json
 import pandas as pd
 
-from ..data_manager import wczytaj_ksiazki
+def zapisz_ksiazke(ksiazki):
+    with open("plik_ksiazki.json", "w", encoding="utf-8") as plik:
+        json.dump(ksiazki, plik, indent=4, ensure_ascii=False)
+
+def wczytaj_ksiazki():
+    try:
+        with open("plik_ksiazki.json", "r", encoding="utf-8") as plik:
+            return json.load(plik)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("FileNotFoundError")
+        return []
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
